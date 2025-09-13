@@ -14,10 +14,9 @@ html, body {
 }
 
 /* ------------------ */
-/* 🖼️  Sections       */
+/* 🖼️ Sections       */
 /* ------------------ */
 .section {
-  height: 100vh;
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -33,16 +32,15 @@ html, body {
 
 /* Hintergrundbilder */
 .bg1 {
-  background-image: url('bilderauswahl/strand.jpg');
+  background-image: url('/images/strand.jpg');
 }
 
 /* ------------------ */
 /* 📸 Bildreihe       */
 /* ------------------ */
-
 .section.bildstreifen {
-  height: 100vh;               /* volle Höhe wie das erste Bild */
-  width: 100vw;                /* volle Breite */
+  height: 100vh;          /* volle Höhe auf Desktop */
+  width: 100vw;           /* volle Breite */
   padding: 0;
   margin: 0;
   display: flex;
@@ -53,39 +51,39 @@ html, body {
 
 .bildreihe {
   display: flex;
-  flex-wrap: wrap;              /* Umbruch, wenn der Bildschirm zu schmal wird */
-  justify-content: space-between; /* Zwischenräume zwischen den Bildern */
-  width: 100%;                  /* Volle Breite des Containers */
-  height: 100%;                 /* Höhe des Containers füllen */
+  flex-wrap: wrap;             /* Umbruch bei schmalen Bildschirmen */
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
 }
 
 .bildreihe img {
   flex: 1;
-  height: 100%;
-  object-fit: cover;            /* Bild anpassen ohne Verzerrung */
-  margin: 0;                    /* Abstand entfernen */
+  height: 100%;               /* volle Höhe Desktop */
+  object-fit: cover;
+  margin: 0;
 }
-
 
 /* 📱 Responsive */
-@media (min-width: 900px) {
-  .bildreihe img {
-    width: 48%;                 /* 2 Bilder nebeneinander */
-  }
-}
-
 @media (max-width: 900px) {
   .bildreihe img {
-    width: 48%;                 /* Zwei Bilder nebeneinander */
+    width: 48%;                /* zwei Bilder nebeneinander */
+    height: auto;
   }
 }
 
 @media (max-width: 600px) {
+  .section.bildstreifen {
+    height: auto;              /* passt sich Inhalt an */
+  }
+
   .bildreihe img {
-    width: 100%;                /* Ein Bild pro Zeile */
+    width: 100%;               /* ein Bild pro Zeile */
+    height: auto;              /* proportional skalieren */
+    object-fit: cover;
+    margin-bottom: 10px;       /* optionaler Abstand */
   }
 }
-
 
 /* ------------------ */
 /* 📝 Überschrift     */
@@ -94,10 +92,9 @@ html, body {
   font-size: 4rem;
   font-weight: 500;
   color: rgba(138, 111, 61);
-  font-family: "Playfair Display", serif; /* elegante Überschrift */
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* bessere Lesbarkeit über Foto */
+  font-family: "Playfair Display", serif;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
-
 
 /* ------------------ */
 /* ☰ Menü-Button      */
@@ -115,7 +112,6 @@ html, body {
   cursor: pointer;
 }
 
-
 /* ------------------ */
 /* 📋 Overlay-Menü    */
 /* ------------------ */
@@ -125,8 +121,8 @@ html, body {
   left: 0;
   width: 15%;
   height: 100%;
-  background: rgba(216, 199, 159, 0.8);; /* fast gleiche Farbe wie Hauptseite */
-  color: #000; /* schwarze Schrift */
+  background: rgba(216, 199, 159, 0.8);
+  color: #000;
   display: none;
   z-index: 1000;
   flex-direction: column;
@@ -147,20 +143,20 @@ html, body {
 }
 
 .menu-content a {
-  font-size: 1.1rem; /* leicht größer für bessere Lesbarkeit */
-  font-weight: 600; /* seriös, nicht zu fett */
-  text-decoration: none; /* keine Unterstreichung */
-  color: #fdfdfd; /* dunkles Grau, angenehmer als Weiß */
-  font-family: "Lato", sans-serif; /* moderne, klare Schrift */
-  display: block; /* sorgt für klickbare Fläche */
-  padding: 0.5rem 1rem; /* Abstand für bessere Klickbarkeit */
-  border-radius: 0.5rem; /* weiche Ecken */
-  transition: all 0.3s ease; /* sanfte Animation */
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fdfdfd;
+  font-family: "Lato", sans-serif;
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
 }
 
 .menu-content a:hover {
-  background-color: #d8c79f; /* warmes Sand-Beige beim Hover */
-  color: #8a6f3d; /* Gold-Braun für Kontrast */
+  background-color: #d8c79f;
+  color: #8a6f3d;
 }
 
 .menu-close {
@@ -170,23 +166,4 @@ html, body {
   font-size: 1.5rem;
   color: white;
   cursor: pointer;
-}
-
-@media (max-width: 600px) {
-  .section.bildstreifen {
-    height: auto;       /* Höhe passt sich der Bildreihe an */
-    padding: 20px;      /* optional: kleineres Padding für Handys */
-  }
-
-  .bildreihe {
-    height: auto;       /* Containerhöhe automatisch */
-    flex-wrap: wrap;    /* Umbruch wie bisher */
-  }
-
-  .bildreihe img {
-    width: 100%;        /* ein Bild pro Zeile */
-    height: auto;       /* Höhe proportional zur Breite */
-    object-fit: cover;  /* skaliert ohne Verzerrung */
-    margin: 0;          /* keine Lücke */
-  }
 }
