@@ -32,7 +32,7 @@ html, body {
 
 /* Hintergrundbilder */
 .bg1 {
-  background-image: url('/bilderauswahl/strand.jpg');
+  background-image: url('bilderauswahl/strand.jpg');
 }
 
 /* ------------------ */
